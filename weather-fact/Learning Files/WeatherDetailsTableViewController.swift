@@ -1,19 +1,19 @@
 //
-//  LocationViewController.swift
+//  WeatherDetailsTableViewController.swift
 //  weather-fact
 //
-//  Created by Stephanie Yung on 11/7/21.
+//  Created by Stephanie Yung on 12/3/21.
 //
 
 import UIKit
 
-class LocationViewController: UIViewController , UITableViewDataSource{
-    let data = ["New York", "Jersey City", "Orlando"] //let = constant
-
+class WeatherDetailsTableViewController: UITableViewController {
     
-    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+  
+//        self.navigationItem.title = "Test"
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -24,24 +24,35 @@ class LocationViewController: UIViewController , UITableViewDataSource{
 
     // MARK: - Table view data source
 
-    func numberOfSections(in tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
+        return 4
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
         return 1
     }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return data.count
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.section == 0{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "testCell1", for: indexPath)
+            cell.textLabel?.text = "testing cell"
+            return cell
+        }
+        return UITableViewCell()
+        
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+    /*
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
-        cell.textLabel?.text = data[indexPath.row]
+        // Configure the cell...
 
         return cell
     }
-
+    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -59,7 +70,7 @@ class LocationViewController: UIViewController , UITableViewDataSource{
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }
+        }    
     }
     */
 

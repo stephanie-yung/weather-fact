@@ -9,6 +9,7 @@ import UIKit
 
 class ForecastTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var dayLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -16,8 +17,16 @@ class ForecastTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        dayLabel.text = "Monday11"
         // Configure the view for the selected state
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "sevenForecast")
+
+        // Configure YourCustomCell using the outlets that you've defined.
+
+        return cell!
     }
 
 }

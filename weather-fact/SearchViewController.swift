@@ -1,13 +1,13 @@
 //
-//  ViewController.swift
+//  SearchViewController.swift
 //  weather-fact
 //
-//  Created by Stephanie Yung on 11/7/21.
+//  Created by Stephanie Yung on 12/3/21.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
